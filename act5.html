@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Correo </title>
+</head>
+<body>
+    <script>
+        // Pedir al usuario que ingrese su correo
+        let email = prompt("Ingresa tu correo:");
+
+        // Verificar si contiene "@"
+        if (email.includes("@")) {
+            alert("Correo válido");
+        } else {
+            alert("Correo inválido");
+        }
+    </script>
+    
+</body>
+<script>
+    let nombre = "Lucas";
+    var ciudad = "Buenos Aires";
+    console.log(`Hola soy ${nombre} y vivo en ${ciudad}.`)
+    //calculo de porcentaje
+    const cuentaTotal = 100;
+    console.log(`su propina es ${cuentaTotal * 0.1}.`);
+
+    //Conversor de temperatura
+    const celsius = 25;
+    console.log(`${celsius} grados Celsius son ${celsius *1.8 + 32} grados fahrenheit.`);
+    
+    //intercambio de valores
+    let a = 5;
+    let b= 10;
+    console.log(` Antes a es ${a} y B es igual a ${b}.`);
+
+    let temp = a;
+    a = b;
+    b= temp;
+    console.log(` A es igual a ${a} y B es igual a ${b}.`);
+
+    //par o impar
+
+    const num = 7;
+    if (num % 2 === 0) {
+        console.log(`${num} es un numero par.`);
+
+    }else {
+        console.log(`${num} es impar.`);
+    }
+    
+    //Aprobado o suspenso
+    const nota = 0;
+    if (nota >= 5) {
+        console.log(`Aprobaste tenes un ${nota}`);
+    }else {
+        console.log(`Reprobaste tenes un ${nota}`);
+    }
+
+    //calculadora de descuento
+    let monto = 110;
+    if(monto > 100){
+        monto = monto * 0.85;
+        console.log(`El monto a pagar es de $${monto}`);
+    }else{
+        console.log(`El monto es de $${monto}`);
+    }
+
+    //La tabla del 5
+    for (let i = 1; i <= 10; i++){
+        console.log(`5 x ${i} = ${5 * i}`);
+    }
+
+    //suma de numeros
+    let suma = 0;
+
+    for (let i = 1; i <= 50; i++){
+        suma += i;
+    }
+    
+    console.log("La suma de los numeros del 1 al 50 es: " + suma);
+
+    //Buscador de elementos
+    let nombres =["Ana", "Luis", "Maria", "Pedro", "Sofia"];
+
+    for(let i = 0; i < nombres.length; i++){
+        console.log("Nombre: " + nombres[i]);
+    }
+    
+    //Filtrado básico
+    let numeros =[2, 8, 15, 4, 22, 7];
+
+    for(let i= 0; i < numeros.length; i++){
+        if( numeros[i] > 10){
+        console.log("Numeros mayores a 10 son: " + numeros[i]);
+        }
+    } 
+
+    //Funcion Area
+    function calcularArea(ancho, alto){
+        return ancho * alto;
+    }
+    let area = calcularArea(12, 8);
+    console.log("El área es: " + area);
+
+    //Funcion saludo
+    function saludo(nombre){
+        return "¡Hola, " +nombre + "!";
+    }
+    console.log(saludo("Lucas"));
+
+    //Conversor de minutos a segundos
+
+    function minutosASegundos(minutos){
+        return minutos * 60;
+    }
+    console.log(minutosASegundos(5));
+
+    
+
+</script>
+</html>

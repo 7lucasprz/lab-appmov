@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Actividad 004</h1>
+    <h2>Ingrese la clave</h2>
+    <form id="formClave">
+        <label for="clave">Ingrese su clave:</label>
+        <input type="password" id="clave" name="clave">
+        <button type="submit">Validar</button>
+    </form>
+
+    <div id="resultado" style="margin: top 20px; font-weight: bold;"></div>
+
+    <h2>Calculadora de Compras</h2>
+
+    <label>Precio: </label>
+    <input id="precio" type="number" step="0.01"><br><br>
+
+    <label>Cantidad: </label>
+    <input id="cantidad" type="number"><br><br>
+
+    <button onclick="agregar()">Agregar</button>
+    <button onclick="finalizar()">Finalizar</button>
+
+    <div id="resultados"></div>
+    <div id="total"></div>
+</body>
+<script>
+    const form = document.getElementById('formClave');
+    const resultado = document.getElementById('resultado');
+
+    const CLAVE_CORRECTA = "1234";
+    let intentos = 3;
+    
+    form.addEventListener('submit', function (event){
+        event.preventDefault();
+
+        const claveIngresada = document.getElementById('clave').value.trim();
+
+        if (claveIngresada === CLAVE_CORRECTA){
+            resultado.textContent = "Clave correcta";
+        }else{
+            intentos--;
+            if(intentos >0){
+                resultado.textContent= `Clave incorrecta. Intentos restantes: ${intentos}`;
+            }else{
+                resultado.textContent ="acceso bloqueado exediste el nro de intentos"
+            }
+        }
+    
+    }
+)
+
+let totalFinal = 0;
+
+        function agregar() {
+            let precio = parseFloat(document.getElementById("precio").value);
+            let cantidad = parseInt(document.getElementById("cantidad").value);
+            let total = precio * cantidad;
+
+            document.getElementById("resultados").innerHTML += 
+                "Se sumaron " + total + " $<br>";
+
+            totalFinal += total;
+
+            // Limpiar campos
+            document.getElementById("precio").value = "";
+            document.getElementById("cantidad").value = "";
+        }
+
+        function finalizar() {
+            document.getElementById("total").innerHTML = 
+                "Su total es: " + totalFinal + " $";
+        }
+</script>
+</html>
