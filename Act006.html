@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Act006</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #ffffff;
+        }
+
+        main {
+            min-height: 400px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: left;
+            padding: 20px;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Constructora Cimientos Sólidos S.A.</h1>
+    </header>
+    <nav>
+        <button onclick="cambiarSeccion('inicio')">Inicio</button>
+        <button onclick="cambiarSeccion('servicios')">Servicios</button>
+        <button onclick="cambiarSeccion('empleados')">Empleados</button>
+        <button onclick="cambiarSeccion('contacto')">Contacto</button>
+    </nav>
+
+    <main id="contenido"></main>
+
+    <footer>
+        <p>Página JS Actividad 006</p>
+    </footer>
+
+    <script>
+        const empleados = [
+            "Lucas Pérez",
+            "Lucia Gascon",
+            "Pedro Porro",
+            "Santiago Gimenez"
+        ];
+
+        function cambiarSeccion(seccion) {
+
+            let contenido = document.getElementById("contenido");
+            let html = "";
+
+            switch(seccion) {
+                case "inicio":
+
+                    html += `
+                        <div class="card">
+                            <h2>Bienvenido</h2>
+                            <p>
+                                Esta es una Pagina Web
+                                creada con JavaScript para la actividad 006 de Lab. Aplicativos Moviles.
+                            </p>
+                        </div>
+                    `;
+                break;
+
+                case "servicios":
+                    let servicios = [
+                        "Construcción",
+                        "Remodelaciones",
+                        "Arquitectura",
+                        "Instalaciones"
+                    ];
+
+                    html += `
+                        <div class="card">
+                            <h2>Servicios</h2>
+                            <ul>
+                    `;
+
+                    for(let i = 0; i < servicios.length; i++) {
+                        html += `<li>${servicios[i]}</li>`;
+                    }
+
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+
+                break;
+
+                case "empleados":
+
+                    html += `
+                        <div class="card">
+                            <h2>Lista de empleados</h2>
+                            <ul>
+                    `;
+
+                    let contador = 0;
+
+                    while(contador < empleados.length) {
+                        html += `<li>${empleados[contador]}</li>`;
+                        contador++;
+                    }
+                    html += `
+                            </ul>
+                        </div>
+                    `;
+
+                break;
+
+                case "contacto":
+                    let horario = 10;
+                    html += `
+                        <div class="card">
+                            <h2>Contacto</h2>
+                            <p>Email: contacto@cimientossolidos.com</p>
+                    `;
+
+                    if(horario >= 8 && horario <= 18) {
+                        html += `<p>Estamos atendiendo</p>`;
+                    }
+                    else {
+                        html += `<p>Fuera del horario laboral</p>`;
+                    }
+                    html += `
+                        </div>
+                    `;
+
+                break;
+
+                default:
+
+                    html = `
+                        <div class="card">
+                            <h2>Error</h2>
+                            <p>La sección no existe.</p>
+                        </div>
+                    `;
+                break;
+            }
+            contenido.innerHTML = html;
+        }
+        cambiarSeccion('inicio');
+
+    </script>
+</body>
+</html>
